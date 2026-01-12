@@ -5,7 +5,7 @@ of each storm and length in hours */
 SELECT 
     g.gstID,
     g.startTime,
-    -- Extract values from the unnested array
+    -- extracting values from the unnested array
     max(k.kpindex) as Max_Kp_Index, 
     count(k.kpindex) as Duration_Hours_Observed
 FROM "satelliteprotector_db_yzu8r3"."raw_nasa_gst" g
@@ -13,7 +13,7 @@ CROSS JOIN UNNEST(g.allkpindex) AS t(k) -- this is what flattens the array
 GROUP BY g.gstID, g.startTime
 ORDER BY Max_Kp_Index DESC;
 
--- Query 2., Radio Blackout Caused by Strong Solar Flares
+-- Query 2., Potential Radio Blackout Caused by Strong Solar Flares
 /* filtering for Major (X-Class) and Moderate (M-Class) flares as these are the 
 events likely to cause HF Radio blackouts. */
 SELECT 
