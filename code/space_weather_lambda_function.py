@@ -52,12 +52,16 @@ def lambda_handler(event, context):
             s3_path = f"{folder}{file_name}"
 
             # Uploading data to S3
+            # first, converting the list of JSON objects into "Newline Delimited JSON" (NDJSON)
+            # this is needed as it removes the outer [ ] and puts each record on a new line
+            ndjson_data = "\n".join([json.dumps(record) for record in data])
+
             s3_client.put_object(
                 Bucket=DESTINATION_BUCKET,
                 Key=s3_path,
-                Body=json.dumps(data), # json.dumps to convert Python object back to JSON string
-                ContentType='application/json'
-            ) # uploading JSON data as a string and setting content type
+                Body=ndjson_data, # using NDJSON data for the body
+                ContentType='application/x-ndjson' # setting content type for NDJSON
+            )
 
             print(f"Data has been successfully uploaded to s3://{DESTINATION_BUCKET}/{s3_path}")
             results.append(f"Successfully uploaded {len(data)} records to {s3_path} in bucket {DESTINATION_BUCKET}.")
