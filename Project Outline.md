@@ -119,3 +119,11 @@ The main use case for this project is to monitor and protect satellites from pot
 ## 3. Querying and Analysis
 1. **AWS Athena**: AWS Athena was used to query the processed data stored in the AWS Glue Data Catalog. This enables satellite operators to analyze the data and gain insights into potential threats from space weather events.
     - Sample Athena queries were created, these can be found in the `code/sql_athena_queries.sql` file in greater detail. For the analysis and showcase of results refer to the `Results of Query Analysis.md` file.
+
+# Possible Future Considerations and Enhancements of the Project
+
+1. **API key handling**: In a production environment, the API key used to access NASA's DONKI API should be securely stored using AWS Secrets Manager or as an encrypted environment variable rather than being hardcoded in the Lambda function. 
+2. **Machine Learning Integration**: Future enhancements could include integrating machine learning models to predict satellite damage based on historical telemetry data and space weather patterns. AWS SageMaker could be used via Data Scientist collaboration.
+3. **Real-Time Alerts**: Real-time alert system could potentially be implemented using an AWS service to notify satellite operators of imminent threats based on the analyzed data or predictive models.
+4. **Expanded Data Sources**: Incorporating additional data sources, such as ground-based observations or other satellite data, to enhance the accuracy and comprehensiveness of the analysis.
+5. **Dashboard Visualization**: Creating dashboards and/or visualizations using either an Amazon service or Tableau, PowerBI to visualize the data and insights for easier interpretation by satellite operators and business managers.
