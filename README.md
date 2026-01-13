@@ -19,5 +19,5 @@ To check the project structure and explanations, refer to the following files:
 ## AI Disclaimer
 Some parts of this project have been assisted by AI tools to enhance quality and efficiency. However, all work has been reviewed and validated to ensure accuracy.
 **Specifics**:
-- GitHub Copilot was used to assist in writing down the reuslts of `Athena` queries in the `Results of Query Analysis.md` file.
-- Gemini 3.0 Pro was used to help with the initial challenges of the static CSV file transformations in Excel. 
+- GitHub Copilot was used to assist in writing down the reuslts of `Athena` queries in markdown table format quickly, found in the `Results of Query Analysis.md` file.
+- Gemini 3.0 Pro was used to help with the initial challenges of the static CSV file transformations in Excel. Additionally, it assisted with specific Athena SQL functions (such as `CROSS JOIN UNNEST` and `FROM_ISO_8601_TIMESTAMP`) found on the internet that were new to me.
