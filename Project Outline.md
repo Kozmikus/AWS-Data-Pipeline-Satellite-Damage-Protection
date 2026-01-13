@@ -132,6 +132,20 @@ In order to measure the success of the created architecture and data pipeline, t
 1. **AWS Athena**: AWS Athena was used to query the processed data stored in the AWS Glue Data Catalog. This enables satellite operators to analyze the data and gain insights into potential threats from space weather events.
     - Sample Athena queries were created, these can be found in the `code/sql_athena_queries.sql` file in greater detail. For the analysis and showcase of results refer to the `Results of Query Analysis.md` file.
 
+# Cost Estimation and Budgeting
+This project was designed with the strict budget of **$50** at **LearnerLab**, **AWS Academy**. By utilizing a *Serverless architecture* (Lambda, Glue, Athena), the actual costs are almost negligible, since some services even fall under the free tier.
+
+| Service | Configuration | Estimated Monthly Cost |
+| :--- | :--- | :--- |
+| **AWS Lambda** | 512MB Memory, Daily execution, ~2-15s runtime/execution | **$0.00** (Free Tier) |
+| **Amazon S3** | Standard Storage (< 1GB text data), scales with usage | **$0.02** |
+| **AWS Glue** | 1 Crawler (2 DPUs, runs daily) | **$0.51 - $2.50** |
+| **Amazon Athena** | Scanning <= 10MB data per query | **<$0.01, ~$0.00** |
+| **Amazon EventBridge**| Scheduled Rule | **$0.00** |
+| **Total** | | **$0.53 - $2.53 / month** |
+
+*The primary cost driver is the AWS Glue Crawler, which has a minimum billing unit of 10 minutes per run. Even with this, the project remains well within the $50 budget.*
+
 # Possible Future Considerations and Enhancements of the Project
 
 1. **API key handling**: In a production environment, the API key used to access NASA's DONKI API should be securely stored using AWS Secrets Manager or as an encrypted environment variable rather than being hardcoded in the Lambda function. 
