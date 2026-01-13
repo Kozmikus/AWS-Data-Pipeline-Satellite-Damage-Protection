@@ -9,6 +9,18 @@ This AWS Data Pipeline Satellite Damage Protection project provides significant 
 ## Use Case
 The main use case for this project is to monitor and protect satellites from potential damage caused by space weather events, specifically solar flares and geomagnetic storms. The project utilizes publicly available satellite telemetry data from sources like the Union of Concerned Scientists and NASA's DONKI API.
 
+# KPIs to Measure Success
+In order to measure the success of the created architecture and data pipeline, the following Key Performance Indicators (KPIs) were considered:
+1. **Risk Identification Speed**
+    - *Metric*: Time taken to query satellites at risk after strong GST detections.
+    - *Target Goal*: Less than 1-5 minutes from detection to risk identification.
+2. **Data "Freshness"**
+    - *Metric*: Time lag between data ingestion from NASA DONKI API and availability in Athena for querying.
+    - *Target Goal*: Data available for querying within 5-10 minutes of ingestion.
+3. **Ingestion Success Rate**
+    - *Metric*: Percentage of successful data ingestions from NASA DONKI API to S3 bucket.
+    - *Target Goal*: 99.9%, ~100% successful ingestions. There is no room for failure in a production environment.
+
 # Outline and Steps Taken in the Project
 
 ![Project Outline](./material/aws%20project.svg)

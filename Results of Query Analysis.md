@@ -110,9 +110,9 @@ ORDER BY f.peaktime DESC;
 #### Results:
 | flare_class | flare_time          | storm_start_time   | storm_severity | delay_hours |
 |-------------|---------------------|--------------------|----------------|--------------|
-| M1.5                | 2025-12-09T15:14Z  | 6.33  |2025-12-10T21:00Z | 29           |
-| M1.6                | 2025-12-09T07:47Z  | 6.33  |2025-12-10T21:00Z | 37           |
-| M1.1                | 2025-12-09T01:38Z  | 6.33  |2025-12-10T21:00Z | 43           |
+| M1.5                | 2025-12-09T15:14Z  | 2025-12-10T21:00Z  |6.33 | 29           |
+| M1.6                | 2025-12-09T07:47Z  | 2025-12-10T21:00Z | 6.33  | 37           |
+| M1.1                | 2025-12-09T01:38Z  | 2025-12-10T21:00Z | 6.33  | 43           |
 | ...         | ...                 | ...                | ...            | ...          |
 #### Analysis:
 This query is the most complex out of the three, aiming to identify a potential relationship between major solar flares and subsequent geomagnetic storms. It is known that solar flares can trigger geomagnetic storms, but the exact timing and intensity relationship is much more complex. The results indicate that several geomagnetic storms commenced within 1 to 4 days following some significant solar flare events. The delay in hours between the events is also calculated, providing insights into the temporal relationship between these phenomena. The variance of Kp index values among these storms suggests differing intensities, but with also differing solar flare intensities. This correlation analysis is vital for understanding how solar activity influences space weather conditions that can affect satellite operations on Earth. Additionally, preventive modelling and preventive decision-making can be enhanced by studying these relationships further.
